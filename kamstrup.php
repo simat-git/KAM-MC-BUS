@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 //***********************************
-//Kamstrup Multical 302 with ID:61 readout and send to mysql database kamstrup.db
+//Kamstrup Multical 302/402 with ID:61 readout and send to mysql database kamstrup.db
 //***********************************
 $output = shell_exec("sudo /usr/local/bin/mbus-serial-request-data -d -b 2400 /dev/ttyAMA0 228"); //persistant usb drv RPi- "m-busadress 61"
 $xmloutput=substr($output,strpos($output,'<MBusData>'));
@@ -22,7 +22,7 @@ $flowmaxValue=$xmloutput->DataRecord[14]->Value;
 $heatenergymonthValue=$xmloutput->DataRecord[15]->Value;
 $coolenergymonthValue=$xmloutput->DataRecord[16]->Value;
 
-$DomoticzIP="http://10.0.32.54:8080/";
+$DomoticzIP="http://127.0.0.1:8080/";
 $IDXTaanvoer=9;
 $IDXTretour=10;
 $IDXTdiff=12;
