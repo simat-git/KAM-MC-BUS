@@ -11,11 +11,9 @@ Required  libmbus, WiringPi and PHP
 
 sudo apt install git libtool autoconf cmake build-essential php php-xml
 
-
 git clone https://github.com/WiringPi/WiringPi.git
 
 ./build
-
 
 git clone https://github.com/rscada/libmbus
 
@@ -23,11 +21,26 @@ cd libmbus
 
 ./build.sh
 
-
 sudo make install
 
 export LD_LIBRARY_PATH=/usr/local/lib
 
 build/bin/mbus-serial-scan -b 2400 /dev/ttyAMA0
+
+
+add the following to /etc/rc.local
+
+# Enable M-BUS power on HAT
+gpio write 25 1
+
+#IPv6 Disable Fixer
+service procps reload
+
+Crontab Entry
+
+## Read Kamstrup Multical 403 via MBUS Crontab Entry
+
+*/1 * * * * php /home/pi/domoticz/scripts/kamstrup.php
+
 
 
