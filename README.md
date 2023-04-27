@@ -10,7 +10,9 @@ Tested on Domoticz 2021.1 and 2023.1
 Required  libmbus, WiringPi and PHP
 
 sudo apt install git libtool autoconf cmake build-essential
+
 sudo apt-get install php -y
+
 sudo apt-get install php-xml
 
 git clone https://github.com/WiringPi/WiringPi.git
