@@ -16,6 +16,7 @@ sudo apt-get install php -y
 sudo apt-get install php-xml
 
 git clone https://github.com/WiringPi/WiringPi.git
+
 ./build
 
 git clone https://github.com/rscada/libmbus
